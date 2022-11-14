@@ -101,7 +101,7 @@ router.get("/offers", async (req, res) => {
     //   page = req.query.page;
     // }
 
-    const skip = (page - 1) * limit;
+    // const skip = (page - 1) * limit;
 
     const results = await Offer.find(filters) //j'ajoute tout les element sur mon tableau vide
       .sort(sort) // j'utilise la methode .sort pour remplir mon tableau vide
