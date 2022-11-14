@@ -91,22 +91,22 @@ router.get("/offers", async (req, res) => {
       sort.product_price = 1; // asc
     }
 
-    let limit = 5;
-    if (req.query.limit) {
-      limit = req.query.limit;
-    }
+    // let limit = 5;
+    // if (req.query.limit) {
+    //   limit = req.query.limit;
+    // }
 
-    let page = 1;
-    if (req.query.page) {
-      page = req.query.page;
-    }
+    // let page = 1;
+    // if (req.query.page) {
+    //   page = req.query.page;
+    // }
 
     const skip = (page - 1) * limit;
 
     const results = await Offer.find(filters) //j'ajoute tout les element sur mon tableau vide
       .sort(sort) // j'utilise la methode .sort pour remplir mon tableau vide
-      .skip(skip)
-      .limit(limit);
+      // .skip(skip)
+      // .limit(limit);
     //.select("product_name product_price -_id");  j'utilise la methode .select pour selectionner le name, price, id
     const count = await Offer.countDocuments(filters);
     res.json({ count: count, offers: results });
